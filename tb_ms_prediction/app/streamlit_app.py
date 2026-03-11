@@ -191,7 +191,7 @@ with st.sidebar:
 
     st.divider()
     st.markdown("**Model Architecture**")
-    st.code("EfficientNetB0\n+ GlobalAvgPool\n+ Dense(256) + BN + Dropout\n+ Dense(128) + BN + Dropout\n+ Dense(1, Sigmoid)", language=None)
+    st.code("EfficientNetB0\n+ GlobalAvgPool\n+ Dense(128) + BN + Dropout\n+ Dense(64) + BN + Dropout\n+ Dense(1, Sigmoid)", language=None)
 
 
 # ──────────────────────────────────────────────────────────────

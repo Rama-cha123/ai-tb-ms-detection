@@ -141,9 +141,9 @@ EfficientNetB0 (Pre-trained on ImageNet, frozen initially)
         ↓
 Global Average Pooling 2D
         ↓
-Dense (256, ReLU) + BatchNormalization + Dropout(0.4)
+Dense (128, ReLU) + BatchNormalization + Dropout(0.4)
         ↓
-Dense (128, ReLU) + BatchNormalization + Dropout(0.3)
+Dense (64, ReLU) + BatchNormalization + Dropout(0.3)
         ↓
 Dense (1, Sigmoid)
         ↓
@@ -175,9 +175,9 @@ cd tb-ms-prediction
 
 ### 2. Create Virtual Environment
 ```bash
-python -m venv venv
-source venv/bin/activate        # Linux/Mac
-venv\Scripts\activate           # Windows
+python -m venv .venv
+source .venv/bin/activate        # Linux/Mac
+.venv\Scripts\activate           # Windows
 ```
 
 ### 3. Install Dependencies
@@ -257,6 +257,12 @@ jupyter notebook notebooks/
 | `02_Model_Training.ipynb` | Complete training walkthrough with plots |
 
 ---
+
+## ☁️ GitHub Hosting & Automation
+
+- GitHub Actions workflow (`../.github/workflows/ci.yml`) automatically runs tests for every push and pull request.
+- CI uses `TB_MS_MODEL_WEIGHTS=none` so tests work in network-restricted environments.
+- Keep model artifacts out of Git and only track placeholders (`models/.gitkeep`, `results/.gitkeep`).
 
 ## 🧪 Tests
 

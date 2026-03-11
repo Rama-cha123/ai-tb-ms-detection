@@ -141,9 +141,9 @@ EfficientNetB0 (Pre-trained on ImageNet, frozen initially)
         ↓
 Global Average Pooling 2D
         ↓
-Dense (256, ReLU) + BatchNormalization + Dropout(0.4)
+Dense (128, ReLU) + BatchNormalization + Dropout(0.4)
         ↓
-Dense (128, ReLU) + BatchNormalization + Dropout(0.3)
+Dense (64, ReLU) + BatchNormalization + Dropout(0.3)
         ↓
 Dense (1, Sigmoid)
         ↓
@@ -175,13 +175,14 @@ cd tb-ms-prediction
 
 ### 2. Create Virtual Environment
 ```bash
-python -m venv venv
-source venv/bin/activate        # Linux/Mac
-venv\Scripts\activate           # Windows
+python -m venv .venv
+source .venv/bin/activate        # Linux/Mac
+.venv\Scripts\activate           # Windows
 ```
 
 ### 3. Install Dependencies
 ```bash
+cd tb_ms_prediction
 pip install -r requirements.txt
 ```
 
@@ -257,6 +258,21 @@ jupyter notebook notebooks/
 | `02_Model_Training.ipynb` | Complete training walkthrough with plots |
 
 ---
+
+
+## ☁️ GitHub Hosting & Automation
+
+This repository is now ready to run on GitHub with CI:
+
+- **GitHub Actions workflow** at `.github/workflows/ci.yml` runs tests on every push/PR.
+- CI sets `TB_MS_MODEL_WEIGHTS=none` so tests do not fail in restricted network environments.
+- Model/result directories are versioned with `.gitkeep` placeholders for clean first-time setup.
+
+If you deploy the Streamlit app from GitHub (for example, Streamlit Community Cloud), set the app entry point to:
+
+```
+tb_ms_prediction/app/streamlit_app.py
+```
 
 ## 🧪 Tests
 

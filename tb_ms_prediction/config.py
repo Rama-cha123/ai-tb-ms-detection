@@ -53,8 +53,8 @@ RANDOM_SEED = 42
 BASE_MODEL = "EfficientNetB0"   # Options: EfficientNetB0, ResNet50, VGG16
 DROPOUT_RATE_1 = 0.4
 DROPOUT_RATE_2 = 0.3
-DENSE_UNITS_1 = 256
-DENSE_UNITS_2 = 128
+DENSE_UNITS_1 = 128
+DENSE_UNITS_2 = 64
 FINE_TUNE_LAYERS = 20           # Number of last layers to unfreeze for fine-tuning
 
 # ─────────────────────────────────────────────
